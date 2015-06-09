@@ -3,24 +3,31 @@ var search = $('#search'),
     fact = $('#fact'),
     facName = $('#facName'),
     addUser = $('#addUser'),
-    results = $('#results');
+    results = $('#results'),
+    deleteButton = $('#delete');
 
 search.click(function() {
     var name = search.val();
     $.get( '/read&' + name, function(data) {
-        if (!data.length){
+        if (data = '[]'){
             addUser.removeClass('hidden');
             search.addClass('hidden');
         } else {
             console.log(data);
+            deleteButton.removeClass('hidden');
             results.append(data);
         }
     });
 });
 
 create.click(function() {
-    var user = {name : search.val(), fact : fact.val()};
+    var user = {name : facName.val(), fact : fact.val()};
     $.post('/create', user, function(data) {
         console.log('User Created');
     });
 });
+
+deleteButton.click(function() {
+    var name = facName.val();
+    $.ajax({url : })
+})
