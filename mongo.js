@@ -27,14 +27,14 @@ var mongo = {
 		});
 	},
 
-	removeDocument: function(name,db,callback) {
-		var collection = db.collection('facMembers');
-		collection.remove(name, function(err, result) {
-			// assert.equal(err, null);
-			console.log("Removed from document");
-			callback(result);
-		});
-	},
+  removeDocument: function(name,db,callback) {
+    var collection = db.collection('facMembers');
+    collection.remove(name, function(err, result) {
+      assert.equal(err, null);
+      console.log("result is" + result);
+      callback(result);
+    });
+  },
 
 	insert: function (data,callback){
 		MongoClient.connect(url, function(err, db) {
@@ -58,17 +58,17 @@ var mongo = {
 		});
 	},
 
-	deleter: function (name, callback){
-		MongoClient.connect(url, function(err, db) {
-			// assert.equal(null, err);
-			console.log("Connected correctly to server");
-			mongo.removeDocument(name, db, function() {
-					db.close();
-				});
-		});
-		callback(name);
-	}
 
+  deleter: function (name, callback){
+  	MongoClient.connect(url, function(err, db) {
+  	  assert.equal(null, err);
+  	  console.log("Connected correctly to server");
+  	  mongo.removeDocument(name, db, function(data) {
+          db.close();
+          callback(data);
+        });
+  	});
+  }
 };
 
 var test = [ {name : 'dan', image : 'fancy.jpg'}, {name : 'claire', image : 'cat.jpg'}, {name : 'niki', image : 'vegan.jpg'} ];
