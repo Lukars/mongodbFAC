@@ -70,7 +70,7 @@ MongoDB represents JSON documents in binary-encoded format called BSON behind th
 * Max key
 
 ###Setting up MongoDB
-1. Install MongoDB using [brew](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
+* Install MongoDB using [brew](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
 ``` js
   brew update
   brew install mongodb
@@ -78,7 +78,7 @@ MongoDB represents JSON documents in binary-encoded format called BSON behind th
  sudo mkdir <username> <path causing the error>
  sudo chown -R <username> <path causing the error>
 ```
-2. Install the MongoDB recommended NPM module for Node.js [node-mongodb-native](https://github.com/mongodb/node-mongodb-native)
+* Install the MongoDB recommended NPM module for Node.js [node-mongodb-native](https://github.com/mongodb/node-mongodb-native)
 ``` json
   //create a folder for your project and cd into it
   npm install mongdb
@@ -86,13 +86,13 @@ MongoDB represents JSON documents in binary-encoded format called BSON behind th
   //this creates a package.json file. Add "mongodb": "~2.0" as dependancy
   npm install
 ```
-3. Create a folder in your project for the data
+* Create a folder in your project for the data
 ``` js
   mkdir data
 ```
 
-4. Start the MongoDB server
+* Start the MongoDB server
 ``` js
   mongod --dbpath=./data --port 27017
 ```
-5. Follow the rest of the instructions (from 'Connecting to MongoDB') on the github repo for the [node-mongodb-native module](https://github.com/mongodb/node-mongodb-native). This will take you through the various CRUD operations possible with MongoDB.
+* Follow the rest of the instructions (from 'Connecting to MongoDB') on the github repo for the [node-mongodb-native module](https://github.com/mongodb/node-mongodb-native). This will take you through the various CRUD operations possible with MongoDB.
