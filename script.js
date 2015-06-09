@@ -7,9 +7,9 @@ var search = $('#search'),
     deleteButton = $('#delete');
 
 search.click(function() {
-    var name = search.val();
+    var name = facName.val();
     $.get( '/read&' + name, function(data) {
-        if (data = '[]'){
+        if (data === "[]"){
             addUser.removeClass('hidden');
             search.addClass('hidden');
         } else {
@@ -21,7 +21,8 @@ search.click(function() {
 });
 
 create.click(function() {
-    var user = {name : facName.val(), fact : fact.val()};
+    var user = JSON.stringify({name : facName.val(), fact : fact.val()});
+
     $.post('/create', user, function(data) {
         console.log('User Created');
     });
@@ -29,5 +30,7 @@ create.click(function() {
 
 deleteButton.click(function() {
     var name = facName.val();
-    $.ajax({url : })
-})
+    $.post('/delete', name, function(data){
+        console.log('user deleted');
+    });
+});
