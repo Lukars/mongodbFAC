@@ -31,7 +31,7 @@ var mongo = {
     var collection = db.collection('facMembers');
     collection.remove(name, function(err, result) {
       assert.equal(err, null);
-      console.log("Removed from document");
+      console.log("result is" + result);
       callback(result);
     });
   },
@@ -62,11 +62,11 @@ var mongo = {
   	MongoClient.connect(url, function(err, db) {
   	  assert.equal(null, err);
   	  console.log("Connected correctly to server");
-  	  mongo.removeDocument(name, db, function() {
+  	  mongo.removeDocument(name, db, function(data) {
           db.close();
+          callback(data);
         });
   	});
-  	callback(name);
   }
 
 };
