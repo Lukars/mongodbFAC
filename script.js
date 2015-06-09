@@ -6,9 +6,9 @@ var search = $('#search'),
     results = $('#results');
 
 search.click(function() {
-    var name = search.val();
+    var name = facName.val();
     $.get( '/read&' + name, function(data) {
-        if (!data.length){
+        if (data === "[]"){
             addUser.removeClass('hidden');
             search.addClass('hidden');
         } else {
@@ -19,7 +19,7 @@ search.click(function() {
 });
 
 create.click(function() {
-    var user = {name : search.val(), fact : fact.val()};
+    var user = JSON.stringify({name : facName.val(), fact : fact.val()});
     $.post('/create', user, function(data) {
         console.log('User Created');
     });
