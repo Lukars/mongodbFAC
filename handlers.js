@@ -36,13 +36,15 @@ handlers["GET read"] = function (req, res) {
 };
 
 handlers["POST delete"] = function (req, res) {
-  var entry;
+  var entry = '';
   req.on("data", function(chunk){
     entry = chunk + '';
   });
-  mongo.deleter({name: entry}, function(err, results) {
-    console.log("result deleted: ", results);
-    res.end();
+  req.on("end", function(){
+      mongo.deleter({name: entry}, function(results) {
+        console.log("result deleted: ", results);
+        res.end();
+      });
   });
 };
 

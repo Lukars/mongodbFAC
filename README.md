@@ -1,6 +1,6 @@
 # MongoDB
 
-##Why
+##Why 
 ###Why would you want to use MongoDB?
 * Advantages
 
