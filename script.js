@@ -13,9 +13,11 @@ search.click(function() {
             addUser.removeClass('hidden');
             search.addClass('hidden');
         } else {
+            var dataFormat = JSON.parse(data)[0];
             console.log(data);
+            results.append("<p>Name: " + dataFormat.name + "</p>");
+            results.append("<p>Fun fact: " + dataFormat.fact + "</p>");
             deleteButton.removeClass('hidden');
-            results.append(data);
         }
     });
 });
