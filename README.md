@@ -1,6 +1,6 @@
 # MongoDB
 
-##Why 
+##Why
 ###Why would you want to use MongoDB?
 * Advantages
 
@@ -70,8 +70,7 @@ MongoDB represents JSON documents in binary-encoded format called BSON behind th
 * Max key
 
 ###Setting up MongoDB
-1. Install MongoDB using brew
-(http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
+1. Install MongoDB using [brew](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/)
 ``` js
   brew update
   brew install mongodb
@@ -79,8 +78,7 @@ MongoDB represents JSON documents in binary-encoded format called BSON behind th
  sudo mkdir <username> <path causing the error>
  sudo chown -R <username> <path causing the error>
 ```
-2. Install the MongoDB recommended NPM module for Node.js (node-mongodb-native)
-(https://github.com/mongodb/node-mongodb-native)
+2. Install the MongoDB recommended NPM module for Node.js [node-mongodb-native](https://github.com/mongodb/node-mongodb-native)
 ``` json
   //create a folder for your project and cd into it
   npm install mongdb
